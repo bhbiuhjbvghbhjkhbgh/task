@@ -1,0 +1,31 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-lg-4">
+      <h1>User info</h1>
+      <table class = "table table-striped">
+       <tbody>
+         <tr>
+           <th>
+             name
+           </th>
+           <th>
+             <%= current_user.name %>
+           </th>
+         </tr>
+         <tr>
+           <th>
+             introduction
+           </th>
+           <th>
+             <%= current_user.introduction %>
+           </th>
+         </tr>
+          <i class="fa-solid fa-user-gear" aria-hidden="true"></i>
+       </tbody>
+      </table>
+    </div>
+    <div class = "col-lg-8">
+
+    </div>
+  </div>
+</div>
