@@ -28,7 +28,7 @@
        <%= link_to icon('fas','user-gear'), edit_user_path(@user_id) %>
       </button>
       <h1>New Book</h1>
-      <%= form_with model: @books, url: books_path(current_user.id), method: :post do |f| %>
+      <%= form_with model: @book, url: books_path(current_user.id), method: :post do |f| %>
         <h4>Title</h4>
         <%= f.text_field :title %>
 
@@ -39,7 +39,26 @@
       <% end %>
     </div>
     <div class = "col-lg-8">
-
+     <h1>Books</h1>
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+          <% @books.each do |f| %>
+           <tr>
+            <td><%= image_tag current_user.get_profile_image %></td>
+            <td>
+                <%= link_to  f.title, book_path(@book_id) %>
+            </td>
+            <td>
+                <%= f.body %>
+            </td>
+           </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

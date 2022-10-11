@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
     @book = Book.new(user_params)
     @book.user_id = current_user.id
-    @user.save
+    @book.save
     redirect_to users_path(current_user.id)
   end
 
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(user).permit(:name, :introduction, :profile_image)
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
 end
