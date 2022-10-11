@@ -1,7 +1,9 @@
 <div class = "container">
   <div class = "row">
     <div class = "col-lg-4">
+
       <h1>User info</h1>
+      <%= image_tag current_user.get_profile_image %>
       <table class = "table table-striped">
        <tbody>
          <tr>
@@ -20,9 +22,21 @@
              <%= current_user.introduction %>
            </th>
          </tr>
-          <i class="fa-solid fa-user-gear" aria-hidden="true"></i>
        </tbody>
       </table>
+      <button type = "button" class = "btn  btn-light btn-block">
+       <%= link_to icon('fas','user-gear'), edit_user_path(@user_id) %>
+      </button>
+      <h1>New Book</h1>
+      <%= form_with model: @book, url: books_path(current_user.id), method: :post do |f| %>
+        <h4>Title</h4>
+        <%= f.text_field :title %>
+
+        <h4>Opinion</h4>
+        <%= f.text_area :body %>
+        <%= f.submit 'Create Book' %>
+
+      <% end %>
     </div>
     <div class = "col-lg-8">
 
