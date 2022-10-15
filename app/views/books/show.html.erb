@@ -10,12 +10,14 @@
               <%= image_tag current_user.get_profile_image %>
               <%= link_to @book_params.title, book_path %>
               <%= @book_params.body %>
-              <button type = "button" class = "btn  btn-info">
-               <%= link_to "Edit", edit_book_path(@book_params) %>
-              </button>
-              <button type = "button" class = "btn  btn-success">
-               <%= link_to "Destroy", book_path(@book_params), method: :delete  %>
-              </button>
+              <% if @book_params.user == current_user %>
+                <button type = "button" class = "btn  btn-info">
+                  <%= link_to "Edit", edit_book_path(@book_params) %>
+                </button>
+                <button type = "button" class = "btn  btn-success">
+                  <%= link_to "Destroy", book_path(@book_params), method: :delete  %>
+                </button>
+              <% end %>
               <p><%= link_to current_user.name, user_path(@user_id) %></p>
             </td>
            </tr>
