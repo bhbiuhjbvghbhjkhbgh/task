@@ -7,7 +7,7 @@
       <tbody>
            <tr>
             <td>
-              <%= image_tag current_user.get_profile_image %>
+              <%= image_tag current_user.get_profile_image, size: "100x100" %>
               <%= link_to @book_params.title, book_path %>
               <%= @book_params.body %>
               <% if @book_params.user == current_user %>
@@ -18,7 +18,7 @@
                   <%= link_to "Destroy", book_path(@book_params), method: :delete  %>
                 </button>
               <% end %>
-              <p><%= link_to current_user.name, user_path(@user_id) %></p>
+              <p><%= link_to current_user.name, user_path(current_user.id) %></p>
             </td>
            </tr>
       </tbody>
