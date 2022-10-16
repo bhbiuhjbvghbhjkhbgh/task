@@ -18,7 +18,7 @@
                   <%= link_to "Destroy", book_path(@book_params), method: :delete  %>
                 </button>
               <% end %>
-              <p><%= link_to current_user.name, user_path(current_user.id) %></p>
+              <p><%= link_to @user_id.name, user_path(current_user.id) %></p>
             </td>
            </tr>
       </tbody>
