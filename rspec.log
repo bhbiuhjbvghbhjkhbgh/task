@@ -649,7 +649,7 @@ Failures:
 
   1) [STEP3] 仕上げのテスト 他人の画面のテスト 他人の投稿詳細画面のテスト 表示内容の確認 ユーザ画像・名前のリンク先が正しい
      [31mFailure/Error: expect(page).to have_link other_book.user.name, href: user_path(other_book.user)[0m
-     [31m  expected to find link "p9aetmagy6" with href "/users/1" but there were no matches[0m
+     [31m  expected to find link "2wkkwsuvnb" with href "/users/1" but there were no matches[0m
      [36m# ./spec/spec/system/03_finishing_touches_spec.rb:226:in `block (5 levels) in <main>'[0m
 
   2) [STEP3] 仕上げのテスト 他人の画面のテスト 他人のユーザ詳細画面のテスト 表示の確認 投稿一覧のユーザ画像のリンク先が正しい
@@ -881,7 +881,7 @@ Failures:
 
   25) [STEP3] 仕上げのテスト 他人の画面のテスト 他人の投稿詳細画面のテスト 表示内容の確認 ユーザ画像・名前のリンク先が正しい
       [31mFailure/Error: expect(page).to have_link other_book.user.name, href: user_path(other_book.user)[0m
-      [31m  expected to find link "nb96xukokd" with href "/users/1" but there were no matches[0m
+      [31m  expected to find link "pvtboj5srg" with href "/users/1" but there were no matches[0m
       [36m# ./spec/system/03_finishing_touches_spec.rb:226:in `block (5 levels) in <main>'[0m
 
   26) [STEP3] 仕上げのテスト 他人の画面のテスト 他人のユーザ詳細画面のテスト 表示の確認 投稿一覧のユーザ画像のリンク先が正しい
@@ -1111,7 +1111,7 @@ Failures:
       [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/capybara-3.37.1/lib/capybara/dsl.rb:52:in `fill_in'[0m
       [36m# ./spec/system/books_spec.rb:173:in `block (4 levels) in <main>'[0m
 
-Finished in 45.33 seconds (files took 2 seconds to load)
+Finished in 44.61 seconds (files took 1.72 seconds to load)
 [31m446 examples, 48 failures[0m
 
 Failed examples:
