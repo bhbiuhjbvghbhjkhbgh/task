@@ -8,10 +8,10 @@
 <% end %>
 <div class = "container">
   <div class = "row">
-
-   <%= render 'books/list', book: @book, user_id: @user_id %>
-    <div class = "col-lg-8">
-     <h1>Books</h1>
+   <div class = "col-md-3">
+    <%= render 'books/list', book: @book, user_id: @user_id %>
+     <div class = "col-md-8 offset-md-1">
+      <h1>Books</h1>
       <table class="table table-striped">
         <tbody>
           <tr>
@@ -20,7 +20,11 @@
           </tr>
           <% @books.each do |f| %>
            <tr>
-            <td><%= image_tag f.get_profile_image, size: "100x100" %></td>
+            <td>
+              <%= link_to user_path(f.user.id) do %>
+               <%= image_tag f.get_profile_image, size: "100x100" %>
+              <% end %>
+            </td>
             <td>
                 <%= link_to  f.title, book_path(f) %>
             </td>
@@ -31,6 +35,7 @@
           <% end %>
         </tbody>
       </table>
-    </div>
+   </div>
+   </div>
   </div>
 </div>

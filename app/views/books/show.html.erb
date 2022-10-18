@@ -1,28 +1,36 @@
 <div class = "container">
  <div class = "row">
-  <%= render 'books/list', book: @book, user_id: @user_id %>
-  <div class = "col-lg-8">
+  <div class = "col-md-3">
+    <%= render 'books/list', book: @book, user_id: @user_id %>
+    <div class = "col-md-8 offset-md-1">
      <h1>Book detail</h1>
      <table>
       <tbody>
            <tr>
             <td>
-              <%= image_tag current_user.get_profile_image, size: "100x100" %>
+              <%= link_to user_path(@user_id) do %>
+               <%= image_tag current_user.get_profile_image, size: "100x100" %>
+              <% end %>
               <%= link_to @book_params.title, book_path %>
               <%= @book_params.body %>
-              <% if @book_params.user == current_user %>
-                <button type = "button" class = "btn  btn-info">
-                  <%= link_to "Edit", edit_book_path(@book_params) %>
+              <% if @user_id == current_user %>
+               <%= link_to edit_book_path(@book_params) do %>
+                <button type = "button" class = "btn  btn-sm btn-success">
+                  Edit
                 </button>
-                <button type = "button" class = "btn  btn-success">
-                  <%= link_to "Destroy", book_path(@book_params), method: :delete  %>
-                </button>
+               <% end %>
+               <%= link_to book_path(@book_params), method: :delete, data: {confirm: "本当に削除しますか？"} do  %>
+                 <button type = "button" class = "btn  btn-sm btn-danger">
+                  Destroy
+                 </button>
+               <% end %>
               <% end %>
               <p><%= link_to @user_id.name, user_path(current_user.id) %></p>
             </td>
            </tr>
       </tbody>
      </table>
+    </div>
   </div>
  </div>
 </div>
