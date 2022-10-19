@@ -1,31 +1,41 @@
 <div class = "container">
  <div class = "row">
   <div class = "col-md-3">
+
     <%= render 'books/list', book: @book, user_id: @user_id %>
     <div class = "col-md-8 offset-md-1">
      <h1>Book detail</h1>
-     <table>
+     <table class = "table">
       <tbody>
            <tr>
             <td>
               <%= link_to user_path(@user_id) do %>
-               <%= image_tag current_user.get_profile_image, size: "100x100" %>
+               <%= image_tag @user_id.get_profile_image, size: "100x100" %>
               <% end %>
+            </td>
+            <td>
               <%= link_to @book_params.title, book_path %>
+            </td>
+            <td>
               <%= @book_params.body %>
+            </td>
               <% if @user_id == current_user %>
-               <%= link_to edit_book_path do %>
-                <button type = "button" class = "btn  btn-sm btn-success">
+               <td>
+                <%= link_to edit_book_path do %>
+                 <button type = "button" class = "btn  btn-sm btn-success">
                   Edit
-                </button>
-               <% end %>
-               <%= link_to book_path(@book_params), method: :delete, data: {confirm: "本当に削除しますか？"} do  %>
+                 </button>
+                <% end %>
+               </td>
+               <td>
+                <%= link_to book_path(@book_params), method: :delete, data: {confirm: "本当に削除しますか？"} do  %>
                  <button type = "button" class = "btn  btn-sm btn-danger">
                   Destroy
                  </button>
-               <% end %>
+                <% end %>
+               </td>
               <% end %>
-              <p><%= link_to @user_id.name, user_path(current_user.id) %></p>
+              <p><%= link_to @user_id.name, user_path(@user_id) %></p>
             </td>
            </tr>
       </tbody>

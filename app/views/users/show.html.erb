@@ -12,7 +12,11 @@
           </tr>
             <% @books.each do |f| %>
              <tr>
-              <td><%= image_tag f.get_profile_image, size: "100x100" %></td>
+             <td>
+              <%= link_to user_path do %>
+               <%= image_tag f.get_profile_image, size: "100x100" %>
+              <% end %>
+             </td>
                 <td>
                   <%= link_to book_path(f) do %>
                    <%= f.title %>
